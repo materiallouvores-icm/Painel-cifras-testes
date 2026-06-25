@@ -600,6 +600,5 @@ window.addEventListener(
       viewer.remove();
 
     }
-
   }
 );
