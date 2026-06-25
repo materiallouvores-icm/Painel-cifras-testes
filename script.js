@@ -182,10 +182,16 @@ function searchSongs(){
 
         addToPlaylist(item);
 
+        searchInput.value = "";
+        results.innerHTML = "";
+        searchInput.focus();
+
       }
     );
 
     results.appendChild(div);
+
+    
 
   });
 
