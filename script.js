@@ -13,14 +13,16 @@ const CACHE_DURATION =
 const searchInput =
   document.getElementById("searchInput");
 
-const searchBtn =
-  document.getElementById("searchBtn");
-
 const results =
   document.getElementById("results");
 
 const playlist =
   document.getElementById("playlist");
+
+searchInput.addEventListener(
+  "input",
+  searchSongs
+);
 
 let images = [];
 
@@ -118,24 +120,6 @@ const data =
 
 /* BUSCA */
 
-searchBtn.addEventListener(
-  "click",
-  searchSongs
-);
-
-searchInput.addEventListener(
-  "keypress",
-  (e) => {
-
-    if(e.key === "Enter"){
-
-      searchSongs();
-
-    }
-
-  }
-);
-
 function searchSongs(){
 
   const value =
@@ -150,11 +134,12 @@ function searchSongs(){
   }
 
   const filtered =
-    images.filter(item =>
-
-      normalizeText(
-      item.name
-    ).includes(value)
+  images
+    .filter(item =>
+      normalizeText(item.name)
+        .includes(value)
+    )
+    .slice(0,20);
 
   );
 
