@@ -193,6 +193,12 @@ function searchSongs(){
 
   }
 );
+
+    results.appendChild(div);
+
+});
+
+}
 /* ADICIONAR */
 
 function addToPlaylist(item){
