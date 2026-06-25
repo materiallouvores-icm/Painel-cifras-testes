@@ -119,6 +119,16 @@ searchInput.addEventListener(
 
     if(e.key === "Enter"){
 
+      function normalizeText(text){
+
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s]/g, "");
+
+}
+      
       searchSongs();
 
     }
@@ -129,9 +139,9 @@ searchInput.addEventListener(
 function searchSongs(){
 
   const value =
-    searchInput.value
-      .toLowerCase()
-      .trim();
+    normalizeText(
+      searchInput.value.trim()
+  );
 
   results.innerHTML = "";
 
@@ -142,9 +152,9 @@ function searchSongs(){
   const filtered =
     images.filter(item =>
 
-      item.name
-        .toLowerCase()
-        .includes(value)
+      normalizeText(
+        item.name
+      ).includes(value)
 
     );
 
