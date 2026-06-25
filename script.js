@@ -30,6 +30,16 @@ let draggedIndex = null;
 
 let currentDragElement = null;
 
+function normalizeText(text){
+
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s]/g, "");
+
+}
+
 /* CARREGAMENTO */
 
 loadImages();
@@ -129,9 +139,9 @@ searchInput.addEventListener(
 function searchSongs(){
 
   const value =
-    searchInput.value
-      .toLowerCase()
-      .trim();
+    normalizeText(
+      searchInput.value.trim()
+    );
 
   results.innerHTML = "";
 
@@ -142,11 +152,11 @@ function searchSongs(){
   const filtered =
     images.filter(item =>
 
+      normalizeText(
       item.name
-        .toLowerCase()
-        .includes(value)
+    ).includes(value)
 
-    );
+  );
 
   if(filtered.length === 0){
 
