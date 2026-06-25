@@ -141,8 +141,6 @@ function searchSongs(){
     )
     .slice(0,20);
 
-  );
-
   if(filtered.length === 0){
 
     results.innerHTML = `
