@@ -177,19 +177,19 @@ function searchSongs(){
     `;
 
     div.addEventListener(
-      "click",
-      () => {
+  "click",
+  () => {
 
-        addToPlaylist(item);
+    addToPlaylist(item);
 
-      }
-    );
+    searchInput.value = "";
 
-    results.appendChild(div);
+    results.innerHTML = "";
 
-  });
+    searchInput.focus();
 
-}
+  }
+);
 
 /* ADICIONAR */
 
