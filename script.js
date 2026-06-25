@@ -177,20 +177,22 @@ function searchSongs(){
     `;
 
     div.addEventListener(
-      "click",
-      () => {
+  "click",
+  () => {
 
-        addToPlaylist(item);
+    addToPlaylist(item);
 
-      }
-    );
+    // limpa a pesquisa
+    searchInput.value = "";
 
-    results.appendChild(div);
+    // limpa os resultados
+    results.innerHTML = "";
 
-  });
+    // retorna o foco para a busca
+    searchInput.focus();
 
-}
-
+  }
+);
 /* ADICIONAR */
 
 function addToPlaylist(item){
